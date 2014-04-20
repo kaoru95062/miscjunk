@@ -21,7 +21,7 @@ and three named statistics will be exported:
 
 #-----------------------------------------------------------------------------
 #
-# Name: Kaoru Takahashi
+# Name: Kaoru
 # Date: 9/10/2013
 #
 

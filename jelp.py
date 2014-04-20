@@ -1,8 +1,7 @@
 #
 # some comments to be ignored 
 # 
-# 2012ca540 Miy......  
-# Jal jbm 4983693 hash....
+# jbm 4983693 hash....
 #
 
 import sys
@@ -11,9 +10,9 @@ import time
 import array
 import pdb
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ is Eleph
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ is Elp
 '''
-An Elephant Number (E) Is:
+An Elp Number (E) Is:
   A positive integer with an even number of digits n
   Is the product of 2 integers, called tusks, x and y each of which have n/2 digits
 
@@ -21,19 +20,19 @@ An Elephant Number (E) Is:
   contains all the digits of x and y in any order (with nothing in x and y remaining)
 
 Examples:
-  1260 is an elephant number with x = 21 and y = 60
-  126000 is NOT an elephant number. X = 210 and y = 600 both x&y have trailing zeros
-  1023, is NOT an elephant number. X = 31 and y = 33.  
+  1260 is an elp number with x = 21 and y = 60
+  126000 is NOT an elp number. X = 210 and y = 600 both x&y have trailing zeros
+  1023, is NOT an elp number. X = 31 and y = 33.  
   Not all digits in E are represented by x and y.
 
-  125460 = 204 x 615 = 246 x 510 ... elephant number with multiple tusks
+  125460 = 204 x 615 = 246 x 510 ... elp number with multiple tusks
 
 '''
 
 
 import itertools
 
-def weed(p, dbg=0):  # or isElephant(p):
+def weed(p, dbg=0):  # or isElp(p):
    print '.... given p = %d' % p  # e.g. p = 1260
    ps = str(p)
    if p < 0 or len(ps) % 2: # odd number
@@ -72,11 +71,11 @@ def weed(p, dbg=0):  # or isElephant(p):
 
 
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ gen Eleph
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ gen Elp
 
-#def genElephs(n):  # multiply 2 numbers, check if it's eleph
+#def genElps(n):  # multiply 2 numbers, check if it's elp
 
-def genElephs(n, ctrl=1, ifrom=0, itill=0, jtill=0):
+def genElps(n, ctrl=1, ifrom=0, itill=0, jtill=0):
    posz = 2 * n  # posision idx to track array's size
    if ifrom==0:  # default then we calculate
       ifrom = 1
@@ -92,8 +91,8 @@ def genElephs(n, ctrl=1, ifrom=0, itill=0, jtill=0):
    #pdb.set_trace()
    t1 = 0; t2 = 0; t3 = 0; # tracking total # of calculation for stats
 
-   # keeps the found eleph nums in a dict() 
-   nums = dict()  # key = p (or eleph num). val = [(x, y), (x2, y2)]   
+   # keeps the found elp nums in a dict() 
+   nums = dict()  # key = p (or elp num). val = [(x, y), (x2, y2)]   
    mlist = list()
 
    for i in range (ifrom, itill):
@@ -161,7 +160,7 @@ def genElephs(n, ctrl=1, ifrom=0, itill=0, jtill=0):
 
          expcnt = pow(2, posz) - 1 
          if bits == expcnt:  # found all digits in p in x, y
-         # these are the 'elephant numbers'
+         # these are the 'elp numbers'
             # keeps in the dict()
             if nums.has_key(p):
                tmp = nums[p]  # a tuple (x,y)
@@ -181,7 +180,7 @@ def genElephs(n, ctrl=1, ifrom=0, itill=0, jtill=0):
             t3 += 1 # just for stats
 
    print 'i=%d) stats: t1=%d, t2=%d, t3=%d' % (i, t1, t2, t3)
-   print "\n** total nums of Elephs (no dup) = ", len(nums)
+   print "\n** total nums of Elps (no dup) = ", len(nums)
    print nums
    for pp in mlist:
        print "\n*** multi tusks ... ", pp, nums[pp]
@@ -411,8 +410,8 @@ weed(p=13243000)
 #sys.exit(0)
 
 t1=time.clock()
-genElephs(n=2, ctrl=1)
-genElephs(n=3, ctrl=1)
+genElps(n=2, ctrl=1)
+genElps(n=3, ctrl=1)
 t2=time.clock()
 print (t2 - t1), 'sec'
 print '~~~~~~~~~~~~~~~~~'
@@ -420,8 +419,8 @@ print '~~~~~~~~~~~~~~~~~'
 sys.exit(0)
 
 t1=time.clock()
-#genElephs(n=4, ctrl=1) # too long so...
-genElephs(n=4, ctrl=1, ifrom=3100, itill=4300, jtill=4300)
+#genElps(n=4, ctrl=1) # too long so...
+genElps(n=4, ctrl=1, ifrom=3100, itill=4300, jtill=4300)
 t2=time.clock()
 print (t2 - t1), 'sec'
 print '~~~~~~~~~~~~~~~~~'
@@ -429,8 +428,8 @@ print '~~~~~~~~~~~~~~~~~'
 slowok = True # <== False
 if slowok: # just to show
   t1=time.clock()
-  genElephs(n=2, ctrl=0)
-  genElephs(n=3, ctrl=0)
+  genElps(n=2, ctrl=0)
+  genElps(n=3, ctrl=0)
   t2=time.clock()
   print (t2 - t1), 'sec'
 
