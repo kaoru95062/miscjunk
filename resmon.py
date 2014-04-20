@@ -214,7 +214,7 @@ if __name__ == '__main__':
    t1.start() # <== this actually starts running the thread
    t2.start() # <== this actually starts running the thread
 
-   for i in range(10):
+   for i in range(5):
       resmon1.Start() # resume / start again
       resmon2.Start() # resume / start again
       try:
